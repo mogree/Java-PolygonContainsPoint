@@ -12,8 +12,14 @@ public class Line
 	private float _a = Float.NaN;
 	private float _b = Float.NaN;
 	private boolean _vertical = false;
-
+	private boolean _startspart = false;
+	
 	public Line(Point start, Point end)
+	{
+		this(start, end, false);
+	}
+
+	public Line(Point start, Point end, boolean startspart)
 	{
 		_start = start;
 		_end = end;
@@ -28,6 +34,8 @@ public class Line
 		{
 			_vertical = true;
 		}
+		
+		_startspart = startspart;
 	}
 
 	/**
@@ -101,6 +109,15 @@ public class Line
 	public Point getEnd()
 	{
 		return _end;
+	}
+	
+	/**
+	 * Does the line start a part
+	 * 
+	 * @return <code>True</code> if it starts a part, <code>False</code> otherwise
+	 */
+	public boolean startsPart() {
+		return _startspart;
 	}
 
 	@Override
